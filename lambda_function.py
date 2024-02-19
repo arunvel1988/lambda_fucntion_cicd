@@ -10,7 +10,7 @@ def lambda_handler(event, context):
     # Creating a response
     response = {
         'statusCode': 200,
-        'body': json.dumps({'message': f'Hello, {name}! This is a simple Lambda function.'})
+        'body': json.dumps({'message': f'Hello, {name}! This is a simple test Lambda function.'})
     }
 
     return response
