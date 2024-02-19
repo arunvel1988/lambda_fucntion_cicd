@@ -28,5 +28,5 @@ jobs:
 
           aws lambda update-function-code \
             --function-name my-lambda-function \
-            --s3-bucket my-lambda-function-bucket \
+            --s3-bucket my-lambda-function-bucket-test-test-arunvel1988 \
             --s3-key my-lambda-function/my-lambda-function.zip  # Update Lambda function with new code
