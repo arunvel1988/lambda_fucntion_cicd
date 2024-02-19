@@ -1,0 +1,44 @@
+name: Deploy Lambda Function
+
+on:
+  push:
+    branches:
+      - main  # Specify the branch to trigger the workflow
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2  # Checkout the repository code
+
+      - name: Install AWS CLI
+        run: |
+          sudo apt-get update
+          sudo apt-get install awscli -y  # Install AWS CLI
+
+      - name: Configure AWS credentials
+        run: |
+          aws configure set aws_access_key_id ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws configure set aws_secret_access_key ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws configure set region us-east-2  # Specify your AWS region
+
+      - name: Create S3 bucket
+        run: |
+          aws s3 mb s3://my-lambda-function-bucket  # Create S3 bucket if not exists
+
+      - name: Zip Lambda function code
+        run: |
+          zip -r my-lambda-function.zip .  # Zip Lambda function code
+
+      - name: Upload code to S3 bucket
+        run: |
+          aws s3 cp my-lambda-function.zip s3://my-lambda-function-bucket/my-lambda-function.zip
+
+      - name: Update Lambda function code
+        run: |
+          aws lambda update-function-code \
+            --function-name my-lambda-function \
+            --s3-bucket my-lambda-function-bucket \
+            --s3-key my-lambda-function/my-lambda-function.zip  # Update Lambda function with new code
