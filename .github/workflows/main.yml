@@ -20,8 +20,8 @@ jobs:
 
       - name: Configure AWS credentials
         run: |
-          export AWS_ACCESS_KEY_ID=${{ secrets.AWS_ACCESS_KEY_ID }}
-          export AWS_SECRET_ACCESS_KEY=${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          export AWS_ACCESS_KEY_ID=AKIATY2ALHWEB2LPVVNR
+          export AWS_SECRET_ACCESS_KEY=ilAhS7qHnBktkENJNMxJDFVVqoC3ZWtEpQO3qU6t
           export AWS_DEFAULT_REGION=us-east-2  # Specify your AWS region
           echo $AWS_ACCESS_KEY_ID
 
