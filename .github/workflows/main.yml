@@ -24,7 +24,7 @@ jobs:
           export AWS_SECRET_ACCESS_KEY=ilAhS7qHnBktkENJNMxJDFVVqoC3ZWtEpQO3qU6t
           export AWS_DEFAULT_REGION=us-east-2  # Specify your AWS region
           zip -r my-lambda-function.zip . 
-          aws s3 cp my-lambda-function.zip s3://my-lambda-function-bucket/my-lambda-function.zip     
+          aws s3 cp my-lambda-function.zip s3://my-lambda-function-bucket-test-test-arunvel1988/my-lambda-function.zip     
 
           aws lambda update-function-code \
             --function-name my-lambda-function \
