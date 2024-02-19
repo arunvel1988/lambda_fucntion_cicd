@@ -26,7 +26,7 @@ jobs:
 
       - name: Create S3 bucket
         run: |
-          aws s3 mb s3://my-lambda-function-bucket  # Create S3 bucket if not exists
+          aws s3 mb s3://my-lambda-function-bucket-test-test-arunvel1988  # Create S3 bucket if not exists
 
       - name: Zip Lambda function code
         run: |
