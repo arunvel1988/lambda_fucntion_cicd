@@ -24,9 +24,6 @@ jobs:
           export AWS_SECRET_ACCESS_KEY=${{ secrets.AWS_SECRET_ACCESS_KEY }}
           export AWS_DEFAULT_REGION=us-east-2  # Specify your AWS region
 
-      - name: Create S3 bucket
-        run: |
-          aws s3 mb s3://my-lambda-function-bucket-test-test-arunvel1988  # Create S3 bucket if not exists
 
       - name: Zip Lambda function code
         run: |
